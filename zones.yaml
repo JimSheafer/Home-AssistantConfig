@@ -1,0 +1,33 @@
+# Zones for presence detection
+#
+
+  - name: Home
+    latitude: !secret lat
+    longitude: !secret long
+    radius: 180
+    icon: mdi:account-multiple
+
+  - name: THS
+    latitude: !secret ths.lat
+    longitude: !secret ths.long
+    radius: 300
+    icon: mdi:school
+
+  - name: HHS
+    latitude: !secret hhs.lat
+    longitude: !secret hhs.long
+    radius: 300
+    icon: mdi:school
+
+  - name: AWS
+    latitude: !secret aws.lat
+    longitude: !secret aws.long
+    radius: 300
+    icon: mdi:cloud
+
+  - name: HTLC
+    latitude: !secret htlc.lat
+    longitude: !secret htlc.long
+    radius: 300
+    icon: mdi:church
+

@@ -1,0 +1,36 @@
+##################
+# Cameras
+##################
+
+# Katherine test with IP Webcam for Android
+  - platform: mjpeg
+    name: Katherine IP Cam
+    mjpeg_url: !secret camera.katherine.url
+    username: !secret camera.katherine.username
+    password: !secret camera.katherine.passwd
+    authentication: basic
+
+# Tybalt IP Cam for Backyard
+  - platform: mjpeg
+    name: Backyard Cam
+    mjpeg_url: !secret camera.backyard.url
+    username: !secret camera.backyard.username
+    password: !secret camera.backyard.passwd
+    authentication: basic
+
+# Frontdoor IP Cam
+  - platform: mjpeg
+    name: Frontdoor Cam
+    mjpeg_url: !secret camera.frontdoor.url
+    username: !secret camera.frontdoor.username
+    password: !secret camera.frontdoor.passwd
+    authentication: basic
+
+# Weather map
+  - platform: generic
+    name: Weather Radar, Leesburg VA
+    still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=LWX&brand=wui&num=10&delay=15&type=N0R&frame=0&scale=0.25&noclutter=1&showstorms=0&mapx=400&mapy=240&centerx=402&centery=210.00000000000006&transx=2&transy=-29.999999999999943&showlabels=1&severe=0&rainsnow=1&lightning=1&smooth=0&rand=25665186&lat=0&lon=0&label=you
+
+##################
+# END Cameras
+##################

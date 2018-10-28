@@ -1,0 +1,216 @@
+##################
+# ui-lovelace.yaml
+##################
+
+title: The Raspberry Bunch
+
+resources:
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=13
+    type: js
+
+views:
+  - id: 0  # Automatically created id
+    title: default_view
+    icon: mdi:home-assistant
+    cards:
+      - id: c0cbecfaf21a420b956240f991744de1  # Automatically created id
+        type: entity-filter
+        entities:
+          - device_tracker.jim
+          - device_tracker.ann
+          - device_tracker.patrick
+        state_filter:
+          - home
+        card:
+          type: glance
+          title: At Home
+          show_state: false
+      - id: 9b028f84dca14017824d4f06e6220f5d  # Automatically created id
+        type: map
+        title: Where is everybody?
+        default_zoom: 12
+        entities:
+          - entity: device_tracker.jim
+          - entity: device_tracker.ann
+          - entity: device_tracker.patrick
+          - zone.home
+          - zone.ths
+          - zone.hhs
+          - zone.aws
+          - zone.htlc
+      - id: 560f5949f60241f287b6d77606d3b0c2  # Automatically created id
+        type: entities
+        title: Home Security
+        entities:
+          - alarm_control_panel.abode_alarm
+          - type: divider
+          - binary_sensor.front_door
+          - binary_sensor.deck_door
+          - binary_sensor.garage_to_house
+          - binary_sensor.back_door_ll
+          - binary_sensor.motion
+
+  - id: 1  # Automatically created id
+    title: weather
+    icon: mdi:cloud
+    cards:
+      - id: a1ebeadc10cc4040b0ffd2b3bd0dda91  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: custom:dark-sky-weather-card
+            title: Dark Sky Weather for Leesburg VA
+            entity_sun: sun.sun
+            entity_daily_summary: sensor.dark_sky_daily_summary
+            entity_current_conditions: sensor.dark_sky_icon
+            entity_humidity: sensor.dark_sky_humidity
+            entity_pressure: sensor.dark_sky_pressure
+            entity_temperature: sensor.dark_sky_temperature
+            entity_visibility: sensor.dark_sky_visibility
+            entity_wind_bearing: sensor.dark_sky_wind_bearing
+            entity_wind_speed: sensor.dark_sky_wind_speed
+            entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+            entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+            entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+            entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+            entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+            entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+            entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+            entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+            entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+            entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+            entity_forecast_icon_1: sensor.dark_sky_icon_1
+            entity_forecast_icon_2: sensor.dark_sky_icon_2
+            entity_forecast_icon_3: sensor.dark_sky_icon_3
+            entity_forecast_icon_4: sensor.dark_sky_icon_4
+            entity_forecast_icon_5: sensor.dark_sky_icon_5
+          - type: picture-entity
+            title: Weather Map
+            entity: camera.weather_radar_leesburg_va
+            show_state: false
+
+  - id: 2  # Automatically created id
+    title: Upstairs
+    icon: mdi:numeric-3-box-outline
+    cards:
+      - id: 427338bf3c984805899304b7e0ab23ba  # Automatically created id
+        type: glance
+        title: Sensors
+        entities:
+          - binary_sensor.sleepnumber_ann_ann_is_in_bed
+          - binary_sensor.sleepnumber_ann_jim_is_in_bed
+          - sensor.sleepnumber_ann_ann_sleepnumber
+          - sensor.sleepnumber_ann_jim_sleepnumber
+      - id: b85ae75bbe264a8390df180aa55bd231  # Automatically created id
+        type: media-control
+        entity: media_player.chromecast_upstairs
+
+  - id: 3  # Automatically created id
+    title: Main Level
+    icon: mdi:numeric-2-box-outline
+    cards:
+      - id: 9700bacaf8484108872968921169a993  # Automatically created id
+        type: glance
+        title: Sensors
+        entities:
+          - binary_sensor.front_door
+          - binary_sensor.deck_door
+          - binary_sensor.garage_to_house
+          - binary_sensor.motion
+      - id: cfd84d79c92e442cbb84ec46e04f0023  # Automatically created id
+        type: picture-glance
+        title: Living room
+        entities:
+          - switch.03200233ecfabc936318
+          - switch.03200233ecfabc936f28
+        camera_image: camera.mjpeg_camera
+      - id: 377313c075cf48a3b4322427a6d2e270  # Automatically created id
+        type: media-control
+        entity: media_player.chromecast_livingroom
+
+  - id: 4  # Automatically created id
+    title: Basement
+    icon: mdi:numeric-1-box-outline
+    cards:
+      - id: 20c593609b694877a9db1fb3194e66c8  # Automatically created id
+        type: glance
+        title: Sensors
+        entities:
+          - binary_sensor.back_door_ll
+      - id: 7a866efb05db4944aa9111b2a23d7a62  # Automatically created id
+        type: media-control
+        entities:
+          - media_player.viziocastdisplay8101
+
+  - id: 5  # Automatically created id
+    title: Router
+    icon: mdi:router-wireless
+    cards:
+      - id: 199d3e5d34e14ad9960d78d42591c80e  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_bytes_received
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: ae3cd2cbfed8472c9cd6c52299da59ec  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_bytes_sent
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: 2235072e789846539c7bb6c1fc444621  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_packetssec_received
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: 986f1b94067840ddb68bb74c5af73b2e  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_kbytesec_sent
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: 64f3fc416907452da3efaade8e839592  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_packetssec_sent
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: bc6d7b21feab4cab980c56f5e40a3a14  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_packets_sent
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: 4c55a1e34a93453aa5c3aee07d312d5e  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_kbytesec_received
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+      - id: fce0013740f84ab78023ac1dad4877e8  # Automatically created id
+        type: sensor
+        entity: sensor.actiontec_wireless_broadband_router_packets_received
+        height: 50
+        line_width: 1
+        line_color: '#000000'
+
+  - id: 6  # Automatically created id
+    title: Cameras
+    icon: mdi:camera
+    cards:
+      - id: 9c5dc711b39f4d1d9279c3428405173d  # Automatically created id
+        type: picture-entity
+        title: Katherine IP Camera
+        entity: camera.katherine_ip_cam
+      - id: b563dc8bf2dd46158d6e78da47284394  # Automatically created id
+        type: picture-entity
+        title: Backyard IP Camera
+        entity: camera.backyard_cam
+      - id: 65293f45eab64a7bac4a1f99a33c51a1  # Automatically created id
+        type: picture-entity
+        title: Frontdoor IP Camera
+        entity: camera.frontdoor_cam
+
+##################
+# END ui-lovelace
+##################

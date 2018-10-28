@@ -1,0 +1,16 @@
+device_tracker.ann:
+  friendly_name: Ann
+device_tracker.jim:
+  friendly_name: Jim
+device_tracker.patrick:
+  friendly_name: Patrick
+
+binary_sensor.sleepnumber_ann_ann_is_in_bed:
+  friendly_name: Ann Side
+  icon: mdi:bed-empty
+binary_sensor.sleepnumber_ann_jim_is_in_bed:
+  friendly_name: Jim Side
+  icon: mdi:bed-empty
+
+camera.mjpeg_camera:
+  friendly_name: Katherine IP Cam

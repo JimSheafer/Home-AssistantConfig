@@ -1,0 +1,31 @@
+###############
+# Groups
+###############
+
+  hass_details:
+    - switch.developer_mode
+    - sensor.hassuptime
+    - sensor.ssl_certificate_expiry
+    - input_select.current_theme
+
+  home_security:
+    entities:
+      - alarm_control_panel.abode_alarm
+      - alarm_control_panel.abode
+      - input_select.abodestatus
+      - input_boolean.abodeupdate
+      - binary_sensor.back_door_ll
+      - binary_sensor.front_door
+      - binary_sensor.deck_door
+      - binary_sensor.motion
+
+  at_home:
+    name: At Home
+    entities:
+      - device_tracker.jim
+      - device_tracker.ann
+      - device_tracker.patrick
+      
+###############
+# END Groups
+###############
